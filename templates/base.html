@@ -7,12 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Working with Media Files</h1>
-    {% block content %}
     <a href="{{MEDIA_URL}}texts/try.txt">Check File</a>
     <a href='/sign_up/'>Sign Up</a>
     <a href='/upload/'>Upload File </a>
     <a href='/form_upload/'>Form Upload</a>
+    <a href='/tenant_upload/'>Tenant Login</a>
+    <h1>Working with Media Files</h1>
+    {% block content %}
     {% endblock content %}
 
 

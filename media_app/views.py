@@ -3,7 +3,7 @@ import os
 from PIL import Image
 from django.conf import settings
 from django.shortcuts import render
-from .forms import LandLordForm, UploadForm
+from .forms import LandLordForm, UploadForm,TenantForm
 # Create your views here.
 def homepage(request):
     return render(request,'base.html')
@@ -37,3 +37,13 @@ def form_uploads(request):
     else:
         form=UploadForm()
     return render(request,'media_app/form_upload.html',{'form':form})
+
+def tenant_upload(request):
+    if request.method=="POST":
+        form=TenantForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.profile_pic=form.cleaned_data['profile_pic']
+            form.save()
+    else:
+        form=TenantForm()
+    return render(request,'media_app/tenant_upload.html',{'form':form})
