@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{MEDIA_URL}}texts/try.txt">Check File</a>
+<a href='/'>Home Page</a>
+<form method='post' enctype='multipart/form-data'>
+    {% csrf_token %}
+    {% for field in form %}
+    {{ field.label_tag }}
+    {{ field }}
+    {{ field.errors }}
+    {% endfor %}
+    <hr>
+    <input type='submit' value='Submit'>
+</form>
+{% endblock content %}
